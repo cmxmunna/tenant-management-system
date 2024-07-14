@@ -17,13 +17,13 @@
         return $rows;
     }
 
-    function showUserPaymentHistory($user_id)
+    function showTenantPaymentHistory($tenant_id)
     {
         $conn = db_conn();
-        $selectQuery = "SELECT * FROM `payment` where subscriber_id = ?";
+        $selectQuery = "SELECT * FROM `payment` where tenant_id = ?";
         try {
             $stmt = $conn->prepare($selectQuery);
-            $stmt->execute([$user_id]);
+            $stmt->execute([$tenant_id]);
         } 
         catch (PDOException $e) 
         {
@@ -33,7 +33,7 @@
         return $rows;
     }
 
-    function showUserPayment($transaction_id)
+    function showTenantPayment($transaction_id)
     {
         $conn = db_conn();
         $selectQuery = "SELECT * FROM `payment` where transaction_id = ?";
@@ -49,7 +49,7 @@
         return $rows;
     }
 
-    function UpdateUserPayment($transaction_id, $data)
+    function UpdateTenantPayment($transaction_id, $data)
     {
         $conn = db_conn();
         $selectQuery = "UPDATE payment SET status = ? where transaction_id = ?";
@@ -98,14 +98,14 @@
         return true;
     }
 
-    function deletepayment($transection_id)
+    function deletePayment($transaction_id)
     {
         $conn = db_conn();
-        $selectQuery = "DELETE FROM `payment` WHERE `transection_id` = ?";
+        $selectQuery = "DELETE FROM `payment` WHERE `transaction_id` = ?";
         try
         {
             $stmt = $conn->prepare($selectQuery);
-            $stmt->execute([$transection_id]);
+            $stmt->execute([$transaction_id]);
         }
         catch(PDOException $e)
         {
@@ -113,22 +113,5 @@
         }
         $conn = null;
         return true;
-    }
-    
-    function searchpayment($transection_id)
-    {
-        $conn = db_conn();
-        $selectQuery = "SELECT * FROM `payment` WHERE username LIKE '%$transection_id%'";
-    
-        try
-        {
-            $stmt = $conn->query($selectQuery);
-        }
-        catch(PDOException $e)
-        {
-            echo $e->getMessage();
-        }
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $rows;
     }
 ?>

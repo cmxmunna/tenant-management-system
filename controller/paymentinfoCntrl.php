@@ -6,12 +6,12 @@
     {
         return showallpayments();
     }
-    function fetchUserPaymentHistory($user_id)
+    function fetchTenantPaymentHistory($tenant_id)
     {
-        return showUserPaymentHistory($user_id);
+        return showTenantPaymentHistory($tenant_id);
     }
-    function fetchUserPayment($transaction_id)
+    function fetchTenantPayment($transection_id)
     {
-        return showUserPayment($transaction_id);
+        return showTenantPayment($transection_id);
     }
 ?>

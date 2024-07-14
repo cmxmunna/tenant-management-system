@@ -1,7 +1,7 @@
 <?php 
     include '../controller/create_paymentCntrl.php';
     require_once '../internetpack_controller/ipackinfoCntrl.php';
-    $ipack = fetchipack($_GET['pack_id']);
+    $tenantinfo = fetchipack($_GET['tenant_id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="../resources/img/icon/favicon.png">
     <link href="../resources/stylesheet/ife.css?v=<?php echo time(); ?>" rel="stylesheet">
-    <title>Internet Pack Details</title>
+    <title>Create Tenant Payment</title>
 </head>
 <body>
     <?php include('../header_footer/header_after_login.php'); ?>

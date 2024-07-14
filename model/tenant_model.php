@@ -92,10 +92,10 @@
 
 
     // Admin CRUD START
-    function showallusers()
+    function showalltenants()
     {
         $conn = db_conn();
-        $selectQuery = 'SELECT * FROM `userinfo` ';
+        $selectQuery = 'SELECT * FROM `tenantinfo` ';
         try
         {
             $stmt = $conn->query($selectQuery);
@@ -108,14 +108,14 @@
         return $rows;
     }
     
-    function showuser($user_id)
+    function showtenant($tenant_id)
     {
         $conn = db_conn();
-        $selectQuery = "SELECT * FROM `userinfo` where user_id = ?";
+        $selectQuery = "SELECT * FROM `tenantinfo` where tenant_id = ?";
     
         try {
             $stmt = $conn->prepare($selectQuery);
-            $stmt->execute([$user_id]);
+            $stmt->execute([$tenant_id]);
         } 
         catch (PDOException $e) 
         {

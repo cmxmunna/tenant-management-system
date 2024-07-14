@@ -1,4 +1,4 @@
-<?php include "../mod_controller/modloginCntrl.php"; ?>
+<?php include "../user_controller/userloginCntrl.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,32 +17,31 @@
     <div class="loginnav">
         <ul>
             <li class="loginnav-btn"><a href="../admin_view/adminlogin.php"><i class="fas fa-user-shield"></i> ADMIN</a></li>
-            <li class="loginnav-btn1"><a href="../mod_view/modlogin.php"><i class="fas fa-users-cog"></i> MODERATOR</a></li>
-            <li class="loginnav-btn"><a href="../user_view/userlogin.php"><i class="fas fa-user"></i> USER</a></li>
+            <li class="loginnav-btn1"><a href="../user_view/userlogin.php"><i class="fas fa-user"></i> USER</a></li>
         </ul>
     </div>
     <form method="post" onsubmit="return LoginValidation()" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="better-view">
-            <h1 align="center"><strong>MODERATOR LOGIN</strong></h1>
+            <h1 align="center"><strong>USER LOGIN</strong></h1>
             <table align="center">
                 <tr>
                     <td><label for="username">User Name &nbsp;&nbsp;&nbsp;</label></td>
                     <td>: <input type="text" id="username" name="username" placeholder="Type User Name"
-                            value="<?php if(isset($_COOKIE["modusername"])) { echo $_COOKIE["modusername"]; } ?>">
+                            value="<?php if(isset($_COOKIE["userusername"])) { echo $_COOKIE["userusername"]; } ?>">
                         <span class="error" id="usernameErr"></span>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="password">Password</label></td>
                     <td>: <input type="password" id="password" name="password" placeholder="Type Password"
-                            value="<?php if(isset($_COOKIE["modpassword"])) { echo $_COOKIE["modpassword"]; } ?>">
+                            value="<?php if(isset($_COOKIE["userpassword"])) { echo $_COOKIE["userpassword"]; } ?>">
                         <span class="error" id="passwordErr"></span>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="slideThree">
-                            <input type="checkbox" id="slideThree" name="remember" />
+                            <input type="checkbox" id="slideThree" name="remember">
                             <label for="slideThree"></label>
                         </div>
                     </td>
@@ -55,7 +54,7 @@
                     <td colspan="2" align="center"><input type="submit" name="login" value="Login" class="btn"></td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center" class="forgot"><a href="../mod_view/forgot_modPassword.php">Forgot Password?</a></td>
+                    <td colspan="2" align="center" class="forgot"><a href="../user_view/forgot_userPassword.php">Forgot Password?</a></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center" class="error">
@@ -70,8 +69,8 @@
             </table>
         </div>
     </form>
-    <br><br><br><br><br><br><br><br>
     <?php include('../header_footer/copyright.php'); ?>
+    <script src="../resources/js/ife.js"></script>
 </body>
 
 </html>

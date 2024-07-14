@@ -1,10 +1,9 @@
 <?php 
     include '../controller/session.php';
-    require_once '../user_controller/userinfoCntrl.php';
-    $users = fetchallusers();
+    require_once '../tenant_controller/tenantinfoCntrl.php';
+    $users = fetchalltenants();
     
     if($_SESSION['usertype'] == "Admin"){}
-    else if($_SESSION['usertype'] == "Moderator"){}
     else{header("location: ../controller/hackerCntrl.php");}
 ?>
 <!DOCTYPE html>
@@ -22,8 +21,8 @@
     <div class="main">
     <?php include('../controller/panelCntrl.php'); ?>
         <section>
-            <h1 class="color-cyan">ALL USER LIST</h1>
-            <a href="../user_view/add_user.php" class="btn">ADD NEW USER</a> <br><br>
+            <h1 class="color-cyan">ALL TENANT LIST</h1>
+            <a href="../user_view/add_user.php" class="btn">ADD NEW TENANT</a> <br><br>
             <form method="post" action="../user_controller/search_userCntrl.php">
                 <span class="color-cyan"><legend>SEARCH USER FROM LIST</legend></span>
                 <table>
@@ -40,34 +39,32 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Username</th>
-                        <th>Password</th>
+                        <th>Father</th>
+                        <th>NID</th>
                         <th>Phone</th>
-                        <th>Address</th>
-                        <th>User Type</th>
-                        <th>Gender</th>
-                        <th>DOB</th>
-                        <th>Image</th>
+                        <th>P. Address</th>
+                        <th>Room No</th>
+                        <th>Balance</th>
+                        <th>Status</th>
+                        <th>Img</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($users as $i => $user): ?>
                         <tr>
-                            <td><a href="../user_view/view_userProfile.php?user_id=<?php echo $user['user_id'] ?>"><?php echo $user['name'] ?></a></td>
-                            <td><?php echo $user['email'] ?></td>
-                            <td><?php echo $user['username'] ?></td>
-                            <td> *********** </td>
-                            <td><?php echo $user['phone'] ?></td>
-                            <td><?php echo $user['address'] ?></td>
-                            <td><?php echo $user['usertype'] ?></td>
-                            <td><?php echo $user['gender'] ?></td>
-                            <td><?php echo $user['dob'] ?></td>
-                            <td><img width="70px" src="../resources/img/user_img/<?php echo $user['image'] ?>" alt="<?php echo $user['name'] ?>"></td>
+                            <td><a href="../tenant_view/view_tenantProfile.php?tenant_id=<?php echo $user['tenant_id'] ?>"><?php echo $user['name'] ?></a></td>
+                            <td><?php echo $user['father'] ?></td>
+                            <td><?php echo $user['nid'] ?></td>
+                            <td><?php echo $user['phone_number'] ?></td>
+                            <td><?php echo $user['permanent_address'] ?></td>
+                            <td><?php echo $user['room_no'] ?></td>
+                            <td><?php echo $user['balance'] ?></td>
+                            <td><?php echo $user['status'] ?></td>
+                            <td><img width="70px" src="../resources/img/tenant_img/<?php echo $user['image'] ?>" alt="<?php echo $user['name'] ?>"></td>
                             <td>
-                                <a href="../user_view/update_userProfile.php?user_id=<?php echo $user['user_id'] ?>" class="green"><span class="btn-action">&nbsp;&nbsp;Edit &nbsp;&nbsp;</span></a> <br><br>
-                                <a href="../user_controller/delete_userCntrl.php?user_id=<?php echo $user['user_id'] ?>" onclick="return confirm('Are you sure want to delete this USER?')"><span class="btn-action error">Delete</span></a>
+                                <a href="../tenant_view/update_tenantProfile.php?tenant_id=<?php echo $user['tenant_id'] ?>" class="green"><span class="btn-action">&nbsp;&nbsp;Edit &nbsp;&nbsp;</span></a> <br><br>
+                                <a href="../tenant_controller/delete_tenantCntrl.php?user_id=<?php echo $user['tenant_id'] ?>" onclick="return confirm('Are you sure want to delete this Tenant?')"><span class="btn-action error">Delete</span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -3,36 +3,8 @@
     {
         include('../panel/adminpanel.php');
     }
-    else if($Type=="Moderator")
+    else if($Type=="User")
     {
-        include('../panel/modpanel.php');
+        include('../panel/userpanel.php');
     } 
-    else if($Type=="Employee")
-    {
-        include('../panel/employee.php');
-    } 
-    else if($Type=="Home")
-    {
-        include('../panel/userpanel.php');
-    }
-    else if($Type=="Corporate")
-    {
-        include('../panel/userpanel.php');
-    }
-    else if($Type=="Wireless")
-    {
-        include('../panel/userpanel.php');
-    }
-    else if($Type=="Student")
-    {
-        include('../panel/userpanel.php');
-    }
-    else if($Type=="IPTelephony")
-    {
-        include('../panel/userpanel.php');
-    }
-    else if($Type=="Host&Develope")
-    {
-        include('../panel/userpanel.php');
-    }
 ?>

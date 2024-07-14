@@ -21,14 +21,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="../resources/img/icon/favicon.png">
     <link href="../resources/stylesheet/ife.css?v=<?php echo time(); ?>" rel="stylesheet">
-    <title>User Transection</title>
+    <title>User Transaction</title>
 </head>
 <body>
     <?php include('../header_footer/header_after_login.php'); ?>
     <div class="main">
     <?php include('../controller/panelCntrl.php'); ?>
         <section>
-            <h1 class="color-cyan">User Transection Update</h1>
+            <h1 class="color-cyan">User Transaction Update</h1>
             <table border="1" class="usr-table">
                 <thead>
                     <tr>
@@ -39,9 +39,9 @@
                         <th>Amount Paid</th>
                         <th>Payment Method</th>
                         <th>Payment Number</th>
-                        <th>Transection ID</th>
+                        <th>Transaction ID</th>
                         <th>Status</th>
-                        <th>Transection Time</th>
+                        <th>Transaction Time</th>
                         <th>Action</th>
                     </tr>
                 </thead>

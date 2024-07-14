@@ -1,10 +1,10 @@
 ============================
-=#Internet Service Provider=
+=#Tenant Management System=
 ============================
 1.Download the project folder.
 2.Move project folder into C:\xampp\htdocs
 3.Open phpmyadmin and create a database named 'ife'.
-4.Import 'ife.sql' into your database.
+4.Import 'mridha.sql' into your database.
 5.Run project at Apache localhost.
 6.Enjoy
 

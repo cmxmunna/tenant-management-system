@@ -41,47 +41,6 @@
     <div class="heading">
         <ul>
             <li class="dropmenu"><a href="index.php">&nbsp;&nbsp;<i class="fa fa-home"></i>&nbsp;&nbsp;</a></li>
-            <li class="dropmenu"><a href=""><i class="fab fa-internet-explorer"></i> Internet Packages</a>
-                <ul class="subdropmenu">
-                    <li><a href="internetpack/corporate_internet.php">Corporate Internet</a></li>
-                    <li><a href="internetpack/home_internet.php">Home Internet</a></li>
-                    <li><a href="internetpack/student_internet.php">Student Internet</a></li>
-                    <li><a href="internetpack/ip_telephony.php">IP Telephony</a></li>
-                    <li><a href="internetpack/covarage_area.php">Covarage Area</a></li>
-                    <li><a href="internetpack/hosting_developement.php">Hosting and Developement</a></li>
-                    <li><a href="internetpack/special_offer.php">Special Offer</a></li>
-                </ul>
-            </li>
-            <li class="dropmenu"><a href=""><i class="fa fa-server"></i> FTP Servers</a>
-                <ul class="subdropmenu">
-                    <li><a href="http://172.16.50.4/" target="_blank">Sam Online</a></li>
-                    <li><a href="http://172.16.50.4/" target="_blank">Film Raja</a></li>
-                    <li><a href="http://movie.pollyflix.com/" target="_blank">FTP Media</a></li>
-                    <li><a href="http://movie.pollyflix.com/" target="_blank">CDN Server</a></li>
-                    <li><a href="http://movie.pollyflix.com/" target="_blank">Barua CN</a></li>
-                    <li><a href="http://movie.pollyflix.com/" target="_blank">Polly Flix</a></li>
-                </ul>
-            </li>
-            <li class="dropmenu"><a href=""><i class="fa fa-film"></i> Movie Servers</a>
-                <ul class="subdropmenu">
-                    <li><a href="http://172.16.50.4/" target="_blank">Sam Online</a></li>
-                    <li><a href="http://12.1.1.3/flix/" target="_blank">Film Raja</a></li>
-                    <li><a href="http://12.1.1.3/flix/" target="_blank">FTP Media</a></li>
-                    <li><a href="http://12.1.1.3/flix/" target="_blank">CDN Server</a></li>
-                    <li><a href="http://12.1.1.3/flix/" target="_blank">Barua CN</a></li>
-                    <li><a href="http://movie.pollyflix.com/" target="_blank">Flix</a></li>
-                </ul>
-            </li>
-            <li class="dropmenu"><a href=""><i class="fa fa-television"></i> IP TV Servers</a>
-                <ul class="subdropmenu">
-                    <li><a href="http://amrbd.com/" target="_blank">AmrBD Entertainment</a></li>
-                    <li><a href="http://amrbd.com/" target="_blank">Indipendent News</a></li>
-                    <li><a href="http://amrbd.com/" target="_blank">Bangla TV</a></li>
-                    <li><a href="http://amrbd.com/" target="_blank">Sports</a></li>
-                    <li><a href="http://amrbd.com/" target="_blank">Cartoon</a></li>
-                    <li><a href="http://amrbd.com/" target="_blank">Song 24x7</a></li>
-                </ul>
-            </li>
             <li class="dropmenu"><a href="how_to_do_payment/payment.php"><i class="fa fa-credit-card"></i> Payment
                     Options</a> </li>
             <li class="dropmenu"><a href="#"><i class="fa fa-angle-up"></i> Scroll Up</a></li>
@@ -89,34 +48,16 @@
     </div>
     <br><br>
     <div class="col-3 center">
-        <h1>Welcome to IFE</h1> <br>
-        <p>
-            The name of our company is "Internet for Everyone". Our motto is <i>'low price means goodinternet'</i>
-            We basically provide internet for everyone including office-court, educational institutions andhomes
-            Specially those who have less money, Poor people. Those who do not have the ability to accessthe internet
-            from SIM companies at a higher price. We try to provide low cost internet services for them.
-        </p>
-        <p>Create a <span class="reg-marquee">"STUDENT"</span> account by clicking the registration button
-            now and get your One month internet
-            subscriptions for free!!! 
-        </p>
+        <h1>Welcome to Mridha Recidence</h1> 
     </div>
     <div class="row">
         <div class="col-2">
             <img src="resources/img/images/about.png" alt="About Mission Vision">
         </div>
-        <div class="col-2">
-            <ul>
-                <li><i class="fa fa-caret-right"></i>&nbsp; Corporate Internet & Data Connectivity</li>
-                <li><i class="fa fa-caret-right"></i>&nbsp; Safe & Smarter Home Internet</li>
-                <li><i class="fa fa-caret-right"></i>&nbsp; High Quality & Reliable IPTSP Service</li>
-                <li><i class="fa fa-caret-right"></i>&nbsp; Secured Hosting & Web Development</li>
-            </ul>
-        </div>
     </div>
     <br><br>
     <div class="col-3 center">
-        <h1 class='color-cyan'>Checkout All Our Internet Packages</h1> <br>
+        <h1 class='color-cyan'>Checkout All Our Houses</h1> <br>
     </div>
 
     <?php

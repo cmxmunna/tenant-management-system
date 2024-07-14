@@ -7,24 +7,14 @@
   	 		<div class="footer-col">
   	 			<h4>Contact</h4>
 				   <p>
-				    Internet For Everyone. Twin Tower <br>
-					007 Purbachol New Town C/A <br>
-					Tel : (8802) 222211111 <br>
-					Mob : (880) 1627000000 <br>
-					Fax : (8802) 222222222 <br>
-					Email : info@ife.com.bd <br>
+				    Matrix Technologies Ltd. <br>
+					Golan, Naotana Mor, Ulukhola, <br>
+					Kaliganj, Gazipur <br>
+					Mobile : 01627124780 <br>
+					Email : cmxmunna@gmail.com <br>
 				   </p>
   	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>Quick Links</h4>
-  	 			<ul>
-  	 				<li><a href="../internetpack/home_internet.php">Home Internet</a></li>
-  	 				<li><a href="../internetpack/corporate_internet.php">Corporate Internet</a></li>
-  	 				<li><a href="../internetpack/student_internet.php">Student Package</a></li>
-  	 				<li><a href="../internetpack/covarage_area.php">Covarage area</a></li>
-  	 				<li><a href="../internetpack/hosting_developement.php">hosting and developement</a></li>
-  	 			</ul>
-  	 		</div>
+  	 	
   	 		<div class="footer-col">
   	 			<h4>Quick Links</h4>
   	 			<ul>
@@ -38,7 +28,7 @@
   	 		<div class="footer-col">
   	 			<h4>follow us</h4>
   	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
+  	 				<a href="https://www.facebook.com/matrixtechnologiesltd"><i class="fab fa-facebook-f"></i></a>
   	 				<a href="#"><i class="fab fa-twitter"></i></a>
   	 				<a href="#"><i class="fab fa-instagram"></i></a>
   	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
