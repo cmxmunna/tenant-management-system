@@ -59,6 +59,6 @@
     }
     else
     {
-        header("location: ../user_view/userlogin.php");
+        header("location: ../tenant_view/tenantlogin.php");
     }
 ?>

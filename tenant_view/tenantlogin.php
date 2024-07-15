@@ -1,4 +1,4 @@
-<?php include "../user_controller/userloginCntrl.php"; ?>
+<?php include "../tenant_controller/tenantloginCntrl.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 

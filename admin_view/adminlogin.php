@@ -17,7 +17,7 @@
     <div class="loginnav">
         <ul>
             <li class="loginnav-btn1"><a href="../admin_view/adminlogin.php"><i class="fas fa-user-shield"></i> ADMIN</a></li>
-            <li class="loginnav-btn"><a href="../user_view/userlogin.php"><i class="fas fa-user"></i> USER</a></li>
+            <li class="loginnav-btn"><a href="../tenant_view/tenantlogin.php"><i class="fas fa-user"></i> USER</a></li>
         </ul>
     </div>
     <form method="post" onsubmit="return LoginValidation()" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">

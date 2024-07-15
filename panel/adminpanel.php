@@ -12,7 +12,7 @@
     </div>
     <div class="ipack-area">
         <i class="fas fa-house-user font-size-20 bottom-mar-10"></i><strong> Mridha Recidence</strong></a> <br>
-        <a href="../internetpack_view/view_all_internetpacks.php"><i class="fas fa-home"></i> Rooms</a> <br>
+        <a href="../room_view/view_all_rooms.php"><i class="fas fa-home"></i> Rooms</a> <br>
         <a href="../tenant_view/view_all_tenants.php"><i class="fas fa-user"></i> Tenant</a> 
     </div>
     <div class="payment-area">

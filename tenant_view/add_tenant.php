@@ -1,9 +1,8 @@
 <?php 
     include '../controller/session.php';
-    include '../user_controller/add_userCntrl.php';
+    include '../tenant_controller/add_tenantCntrl.php';
     
     if($_SESSION['usertype'] == "Admin"){}
-    else if($_SESSION['usertype'] == "Moderator"){}
     else{header("location: ../controller/hackerCntrl.php");}
 ?>
 <!DOCTYPE html>
@@ -14,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="../resources/img/icon/favicon.png">
     <link href="../resources/stylesheet/ife.css?v=<?php echo time(); ?>" rel="stylesheet">
-    <title>Add User</title>
+    <title>Add Tenant</title>
 </head>
 <body>
     <?php include('../header_footer/header_after_login.php'); ?>
@@ -24,7 +23,7 @@
         <input type="button" onclick="goBack()" class="link-hvr" value="← Back">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return RegistrationValidation()" method="post" enctype="multipart/form-data">
             <div class="">
-                <h1 ><legend>ADD NEW USER</legend></h1>
+                <h1 ><legend>ADD NEW TENANT</legend></h1>
                 <table>
                     <tr>
                         <td><label for="name">Name</label></td>

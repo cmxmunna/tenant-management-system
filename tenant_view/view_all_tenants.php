@@ -21,8 +21,8 @@
     <div class="main">
     <?php include('../controller/panelCntrl.php'); ?>
         <section>
-            <h1 class="color-cyan">ALL TENANT LIST</h1>
-            <a href="../user_view/add_user.php" class="btn">ADD NEW TENANT</a> <br><br>
+            <h1 class="color-cyan">ADD NEW TENANT</h1>
+            <a href="../tenant_view/add_tenant.php" class="btn-action link-hvr">ADD NEW TENANT</a> <br><br>
             <form method="post" action="../user_controller/search_userCntrl.php">
                 <span class="color-cyan"><legend>SEARCH USER FROM LIST</legend></span>
                 <table>
@@ -34,7 +34,8 @@
                     </tr>
                 </table>
             </form>
-            <br><br><br>
+            <br>
+            <h1 class="color-cyan">ALL TENANT LIST</h1>
             <table border="1" class="usr-table">
                 <thead>
                     <tr>

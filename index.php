@@ -61,12 +61,12 @@
     </div>
 
     <?php
-        require_once 'model/ipack_model.php';
-        function fetchShowableIpacks()
+        require_once 'model/room_model.php';
+        function fetchShowableRoons()
         {
-            return onlyShowableIpacks();
+            return onlyShowableRooms();
         }
-        $ipacks = fetchShowableIpacks();
+        $ipacks = fetchShowableRooms();
     ?>
     <div class="row">
         <?php foreach ($ipacks as $i => $ipack): ?>

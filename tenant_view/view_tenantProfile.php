@@ -2,6 +2,9 @@
     include "../controller/session.php" ;
     require_once '../tenant_controller/tenantinfoCntrl.php';
     $user = fetchtenant($_GET['tenant_id']);
+
+    require_once '../controller/paymentinfoCntrl.php'; 
+    $payments = fetchallpayments();
 ?>
 <!DOCTYPE html>
 <html lang="en">

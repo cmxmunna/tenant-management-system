@@ -97,7 +97,7 @@ function LoginValidation()
     }
 }
 
-//User Registration Validation by Farhan Naeem
+//Tenant Add Validation by Farhan Naeem
 function RegistrationValidation() 
 {
     var name = document.getElementById("name").value;
@@ -248,123 +248,67 @@ function RegistrationValidation()
     }
 }
 
-//Product add validation by javascript by Munna, Shihab
-function ipackAddValidation() 
+//Add Room by javascript by Munna
+function RoomAddValidation() 
 {
-    var name = document.getElementById("name").value;
-    var speed = document.getElementById("speed").value;
-    var userTypeHome = document.getElementById("Home");
-    var userTypeCorporate = document.getElementById("Corporate");
-    var userTypeWireless = document.getElementById("Wireless");
-    var userTypeWireless = document.getElementById("Wireless");
-    var userTypeStudent = document.getElementById("Student");
-    var userTypeIPTelephony = document.getElementById("IPTelephony");
-    var userTypeHost_Develope = document.getElementById("Host&Develope");
-    var connTypeFiberOptics = document.getElementById("FiberOptics");
-    var connTypeCat6Cable = document.getElementById("Cat6Cable");
-    var connTypeWireless = document.getElementById("Wireless2");
-    var connTypeOther = document.getElementById("connTypeOther");
-    var anyTime = document.getElementById("any");
-    var dayTime = document.getElementById("day");
-    var nightTime = document.getElementById("night");
-    var OtherTime = document.getElementById("OtherTime");
-    var support = document.getElementById("support").value;
-    var included = document.getElementById("included").value;
-    var price = document.getElementById("price").value;
-    var displayYes = document.getElementById("yes");
-    var displayNo = document.getElementById("no");
+    var houseAddress = document.getElementById("house_address").value;
+    var roomNo = document.getElementById("room_no").value;
+    var rent = document.getElementById("rent").value;
+    var roomDetails = document.getElementById("room_details").value;
+    var bookedYes = document.getElementById("yes");
+    var bookedNo = document.getElementById("no");
     var image = document.getElementById("image").value;
 
-    if (name == "") 
+    if (houseAddress == "") 
     {
-        document.getElementById("nameErr").innerHTML =
-        " ⚠ Please fill the name field";
+        document.getElementById("house_addressErr").innerHTML =
+        " ⚠ Please fill the Address field";
         return false;
     }
     else{
-        document.getElementById("nameErr").innerHTML = "";
+        document.getElementById("house_addressErr").innerHTML = "";
     }
 
-    if (speed == "") 
+    if (roomNo == "") 
     {
-        document.getElementById("speedErr").innerHTML =
-        " ⚠ Please fill the speed field";
+        document.getElementById("room_noErr").innerHTML =
+        " ⚠ Please type Room No";
         return false;
     }
     else{
-        document.getElementById("speedErr").innerHTML = "";
+        document.getElementById("room_noErr").innerHTML = "";
     }
-    if (userTypeHome.checked == false && userTypeCorporate.checked == false && 
-        userTypeWireless.checked == false && userTypeStudent.checked == false && userTypeIPTelephony.checked == false && 
-        userTypeHost_Develope.checked == false) 
+    if (rent == "") 
     {
-        document.getElementById("usertypeErr").innerHTML =
-        " ⚠ Please select a User Type";
-        return false;
-    }
-    else{
-        document.getElementById("usertypeErr").innerHTML = "";
-    }
-    if (connTypeFiberOptics.checked == false && connTypeCat6Cable.checked == false && 
-        connTypeWireless.checked == false && connTypeOther.checked == false) 
-    {
-        document.getElementById("conntypeErr").innerHTML =
-        " ⚠ Please select a Connection Type";
-        return false;
-    }
-    else{
-        document.getElementById("conntypeErr").innerHTML = "";
-    }
-    if (anyTime.checked == false && dayTime.checked == false && 
-        nightTime.checked == false && OtherTime.checked == false) 
-    {
-        document.getElementById("timeErr").innerHTML =
-        " ⚠ Please select a Using Time Period";
-        return false;
-    }
-    else{
-        document.getElementById("timeErr").innerHTML = "";
-    }
-    if (support == "") 
-    {
-        document.getElementById("supportErr").innerHTML =
-        " ⚠ Please fill the support field";
-        return false;
-    }
-    else{
-        document.getElementById("supportErr").innerHTML = "";
-    }
-    if (included == "") 
-    {
-        document.getElementById("includedErr").innerHTML =
-        " ⚠ Please fill the included field";
-        return false;
-    }
-    else{
-        document.getElementById("includedErr").innerHTML = "";
-    }
-    if (price == "") 
-    {
-        document.getElementById("priceErr").innerHTML =
+        document.getElementById("rentErr").innerHTML =
         " ⚠ Please add a valid Price";
         return false;
     }
     else{
-        document.getElementById("priceErr").innerHTML = "";
+        document.getElementById("rentErr").innerHTML = "";
     }
-    if (displayYes.checked == false && displayNo.checked == false) 
+    if (roomDetails == "") 
     {
-        document.getElementById("displayErr").innerHTML =
-        " ⚠ Want to display instantly? Select 'Y'";
+        document.getElementById("room_detailsErr").innerHTML =
+        " ⚠ Please input Room Details";
         return false;
     }
     else{
-        document.getElementById("displayErr").innerHTML = "";
+        document.getElementById("room_detailsErr").innerHTML = "";
+    }
+    if (bookedYes.checked == false && bookedNo.checked == false) 
+    {
+        document.getElementById("bookedErr").innerHTML =
+        " ⚠ Is this room booked? Select 'Y'";
+        return false;
+    }
+    else{
+        document.getElementById("bookedErr").innerHTML = "";
     }
     if (image == "") 
     {
         document.getElementById("imageErr").innerHTML =
-        " ⚠ Please your profile Image";
+        " ⚠ Please select Room Image";
         return false;
     }
     else{
