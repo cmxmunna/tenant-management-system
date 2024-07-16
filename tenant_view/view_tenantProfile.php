@@ -79,19 +79,19 @@
                 </tr>
                 <tr>
                     <td><label for="advance">Advance</label></td>
-                    <td>: <label><?php echo $user['advance'] ?></label></td>
+                    <td>: <label class="green"><?php echo $user['advance'] ?> Tk</label></td>
                 </tr>
                 <tr>
                     <td><label for="monthly_bill">Monthly Bill</label></td>
-                    <td>: <label><?php echo $user['monthly_bill'] ?></label></td>
+                    <td>: <label class="green"><?php echo $user['monthly_bill'] ?> Tk</label></td>
                 </tr>
                 <tr>
                     <td><label for="balance">Balance</label></td>
-                    <td>: <label><?php echo $user['balance'] ?></label></td>
+                    <td>: <label class="red"><?php echo $user['balance'] ?> Tk</label></td>
                 </tr>
                 <tr>
                     <td><label for="rent_date">Rent Date</label></td>
-                    <td>: <label><?php echo $user['rent_date'] ?></label></td>
+                    <td>: <label ><?php echo $user['rent_date'] ?></label></td>
                 </tr>
                 <tr>
                     <td><label for="status">Status</label></td>
@@ -106,9 +106,9 @@
                     <td>: <label><?php echo $user['tenant_reg_img'] ?></label></td>
                 </tr>
                 <tr>
-                    <td><a href="../tenant_view/update_tenantProfile.php?tenant_id=<?php echo $user['tenant_id'] ?>" class="green">Edit Profile</a></td>
+                    <td><a href="../tenant_view/update_tenantProfile.php?tenant_id=<?php echo $user['tenant_id'] ?>" class="green link-hvr">Edit Profile</a></td>
                     <td></td>
-                    <td><a href="../tenant_view/update_tenantImage.php?tenant_id=<?php echo $user['tenant_id'] ?>" class="green">Update Profile Image</a></td>
+                    <td><a href="../tenant_view/update_tenantImage.php?tenant_id=<?php echo $user['tenant_id'] ?>" class="green link-hvr">Update Profile Image</a></td>
                 </tr>
             </table>
         </section>

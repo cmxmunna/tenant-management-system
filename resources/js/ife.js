@@ -101,17 +101,22 @@ function LoginValidation()
 function RegistrationValidation() 
 {
     var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    var cPassword = document.getElementById("cpass").value;
-    var phone = document.getElementById("phone").value;
-    var address = document.getElementById("address").value;
+    var father = document.getElementById("father").value;
     var dob = document.getElementById("dob").value;
-    var usertype = document.getElementById("usertype").value;
     var genderM = document.getElementById("Male");
     var genderF = document.getElementById("Female");
     var genderO = document.getElementById("Other");
+    var religion = document.getElementById("religion").value;
+    var maritial_status = document.getElementById("maritial_status").value;
+    var occupation = document.getElementById("occupation").value;
+    var nid = document.getElementById("nid").value;
+    var phone_number = document.getElementById("phone_number").value;
+    var permanent_address = document.getElementById("permanent_address");
+    var room_no = document.getElementById("room_no");
+    var advance = document.getElementById("advance");
+    var monthly_bill = document.getElementById("monthly_bill");
+    var rent_date = document.getElementById("rent_date");
+    var status = document.getElementById("status");
     var image = document.getElementById("image").value;
     
     if (name == "") 
@@ -123,92 +128,14 @@ function RegistrationValidation()
     else{
         document.getElementById("nameErr").innerHTML = "";
     }
-    if (email == "") 
+    if (father == "") 
     {
-        document.getElementById("emailErr").innerHTML =
-        " ⚠ Please fill the email field";
+        document.getElementById("fatherErr").innerHTML =
+        " ⚠ Please fill the father field";
         return false;
     }
     else{
-        document.getElementById("emailErr").innerHTML = "";
-    }
-    if (username == "") 
-    {
-        document.getElementById("usernameErr").innerHTML =
-        " ⚠ Please fill the username field";
-        return false;
-    }
-    else{
-        document.getElementById("usernameErr").innerHTML ="";
-    }
-    if (username.length <= 2 || username.length > 20) 
-    {
-        document.getElementById("usernameErr").innerHTML =
-        " ⚠ Username lenght must be between 2 and 20";
-        return false;
-    }
-    if (!isNaN(username)) 
-    {
-        document.getElementById("usernameErr").innerHTML =
-        " ⚠ only characters are allowed";
-        return false;
-    }
-    if (password == "") 
-    {
-        document.getElementById("passwordErr").innerHTML =
-        " ⚠ Please fill the password field";
-        return false;
-    }
-    else{
-        document.getElementById("passwordErr").innerHTML = "";
-    }
-    if (password.length <= 5 || password.length > 20) 
-    {
-        document.getElementById("passwordErr").innerHTML =
-        " ⚠ Passwords lenght must be between  5 and 20";
-        return false;
-    }
-    if (cPassword == "") 
-    {
-        document.getElementById("cpassErr").innerHTML =
-        " ⚠ Please fill the Confirm Password field";
-        return false;
-    }
-    else{
-        document.getElementById("cpassErr").innerHTML = "";
-    }
-    if (password !== cPassword) 
-    {
-        document.getElementById("cpassErr").innerHTML =
-        " ⚠ Password does not match the confirm password";
-        return false;
-    }
-    if (phone == "") 
-    {
-        document.getElementById("phoneErr").innerHTML =
-        " ⚠ Please input a Phone Number";
-        return false;
-    }
-    else{
-        document.getElementById("phoneErr").innerHTML = "";
-    }
-    if (isNaN(phone)) 
-    {
-        document.getElementById("phoneErr").innerHTML =
-        " ⚠ Please input a valid Phone Number";
-        return false;
-    }
-    else{
-        document.getElementById("phoneErr").innerHTML = "";
-    }
-    if (address == "") 
-    {
-        document.getElementById("addressErr").innerHTML =
-        " ⚠ Please fill the address field";
-        return false;
-    }
-    else{
-        document.getElementById("addressErr").innerHTML = "";
+        document.getElementById("fatherErr").innerHTML = "";
     }
     if (dob == "") 
     {
@@ -219,15 +146,6 @@ function RegistrationValidation()
     else{
         document.getElementById("dobErr").innerHTML = "";
     }
-    if (usertype == "") 
-    {
-        document.getElementById("usertypeErr").innerHTML =
-        " ⚠ Please a usertype";
-        return false;
-    }
-    else{
-        document.getElementById("usertypeErr").innerHTML = "";
-    }
     if (genderM.checked == false && genderF.checked == false && genderO.checked == false ) 
     {
         document.getElementById("genderErr").innerHTML =
@@ -237,6 +155,106 @@ function RegistrationValidation()
     else{
         document.getElementById("genderErr").innerHTML = "";
     }
+    if (religion == "") 
+    {
+        document.getElementById("religionErr").innerHTML =
+        " ⚠ Please fill the religion field";
+        return false;
+    }
+    else{
+        document.getElementById("religionErr").innerHTML ="";
+    }
+    if (maritial_status == "") 
+    {
+        document.getElementById("maritial_statusErr").innerHTML =
+        " ⚠ Please select Maritial Status";
+        return false;
+    }
+    else{
+        document.getElementById("maritial_statusErr").innerHTML = "";
+    }
+    if (occupation == "") 
+    {
+        document.getElementById("occupationErr").innerHTML =
+        " ⚠ Please fill the occupation field";
+        return false;
+    }
+    else{
+        document.getElementById("occupationErr").innerHTML = "";
+    }
+    if (nid == "") 
+    {
+        document.getElementById("nidErr").innerHTML =
+        " ⚠ Please Enter National ID Number";
+        return false;
+    }
+    else{
+        document.getElementById("nidErr").innerHTML = "";
+    }
+    if (phone_number == "") 
+    {
+        document.getElementById("phone_numberErr").innerHTML =
+        " ⚠ Please Enter Phone Number";
+        return false;
+    }
+    else{
+        document.getElementById("phone_numberErr").innerHTML = "";
+    }
+    if (permanent_address == "") 
+    {
+        document.getElementById("permanent_addressErr").innerHTML =
+        " ⚠ Please Enter permanent_address";
+        return false;
+    }
+    else{
+        document.getElementById("permanent_addressErr").innerHTML = "";
+    }
+    if (room_no == "") 
+    {
+        document.getElementById("room_noErr").innerHTML =
+        " ⚠ Please Enter room_no";
+        return false;
+    }
+    else{
+        document.getElementById("room_noErr").innerHTML = "";
+    }
+    if (advance == "") 
+    {
+        document.getElementById("advanceErr").innerHTML =
+        " ⚠ Please Enter advance";
+        return false;
+    }
+    else{
+        document.getElementById("advanceErr").innerHTML = "";
+    }
+    if (monthly_bill == "") 
+    {
+        document.getElementById("monthly_billErr").innerHTML =
+        " ⚠ Please Enter monthly_bill";
+        return false;
+    }
+    else{
+        document.getElementById("monthly_billErr").innerHTML = "";
+    }
+    if (rent_date == "") 
+    {
+        document.getElementById("rent_dateErr").innerHTML =
+        " ⚠ Please Enter rent_date";
+        return false;
+    }
+    else{
+        document.getElementById("rent_dateErr").innerHTML = "";
+    }
+    if (status == "") 
+    {
+        document.getElementById("statusErr").innerHTML =
+        " ⚠ Please Enter status";
+        return false;
+    }
+    else{
+        document.getElementById("statusErr").innerHTML = "";
+    }
+    
     if (image == "") 
     {
         document.getElementById("imageErr").innerHTML =

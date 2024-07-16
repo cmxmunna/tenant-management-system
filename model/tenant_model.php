@@ -1,26 +1,35 @@
 <?php
     require_once 'db_connect.php';
 
-    // Add User 
-    function adduser($data)
+    // Add New Tenant 
+    function addNewTenant($data)
     {
         $conn = db_conn();
-        $selectQuery = "INSERT into userinfo (user_id, name, email, username, password, phone, address, usertype, gender, dob, image)
-        VALUES (:user_id, :name, :email, :username, :password, :phone, :address, :usertype, :gender, :dob, :image)";
+        $selectQuery = "INSERT into tenantinfo (tenant_id, name, father, dob, gender, religion, maritial_status, occupation, nid, phone_number, password, permanent_address, room_no, advance, monthly_bill, rent_date, balance, status, usertype, image)
+        VALUES (:tenant_id, :name, :father, :dob, :gender, :religion, :maritial_status, :occupation, :nid, :phone_number, :password, :permanent_address, :room_no, :advance, :monthly_bill, :rent_date, :balance, :status, :usertype, :image)";
         try
         {
             $stmt = $conn->prepare($selectQuery);
             $stmt->execute([
-                ':user_id' => $data['user_id'],
+                ':tenant_id' => $data['tenant_id'],
                 ':name' => $data['name'],
-                ':email' => $data['email'],
-                ':username' => $data['username'],
-                ':password' => $data['password'],
-                ':phone' => $data['phone'],
-                ':address' => $data['address'],
-                ':usertype' => $data['usertype'],
-                ':gender' => $data['gender'],
+                ':father' => $data['father'],
                 ':dob' => $data['dob'],
+                ':gender' => $data['gender'],
+                ':religion' => $data['religion'],
+                ':maritial_status' => $data['maritial_status'],
+                ':occupation' => $data['occupation'],
+                ':nid' => $data['nid'],
+                ':phone_number' => $data['phone_number'],
+                ':password' => $data['password'],
+                ':permanent_address' => $data['permanent_address'],
+                ':room_no' => $data['room_no'],
+                ':advance' => $data['advance'],
+                ':monthly_bill' => $data['monthly_bill'],
+                ':balance' => $data['balance'],
+                ':rent_date' => $data['rent_date'],
+                ':status' => $data['status'],
+                ':usertype' => $data['usertype'],
                 ':image' => $data['image']
             ]);
         }
@@ -28,21 +37,20 @@
         {
             echo $e->getMessage();
         }
-        
         $conn = null;
         return true;
     }
 
-    // Update Admin Profile
-    function updateUserProfile($user_id, $data)
+    // Update Tenant Profile
+    function updateTenantProfile($tenant_id, $data)
     {
         $conn = db_conn();
-        $selectQuery = "UPDATE userinfo SET name = ?, email = ?, username = ?, phone = ?, address = ?, gender = ?, dob = ? where user_id = ?";
+        $selectQuery = "UPDATE tenantinfo SET name = ?, father = ?, dob = ?, gender = ?, religion = ?, maritial_status = ?, occupation = ?, nid = ?, phone_number = ?, permanent_address = ?, room_no = ?, advance = ?, monthly_bill = ?, balance = ?, rent_date = ?, status = ? where tenant_id = ?";
         try
         {
             $stmt = $conn->prepare($selectQuery);
             $stmt->execute([
-            $data['name'], $data['email'], $data['username'], $data['phone'], $data['address'], $data['gender'], $data['dob'], $user_id]);
+            $data['name'], $data['father'], $data['dob'], $data['gender'], $data['religion'], $data['maritial_status'], $data['occupation'], $data['nid'], $data['phone_number'], $data['permanent_address'], $data['room_no'], $data['advance'], $data['monthly_bill'], $data['balance'], $data['rent_date'], $data['status'], $tenant_id]);
         }
         catch(PDOException $e)
         {
@@ -52,16 +60,34 @@
         return true;
     }
 
-    // Admin Profile Image Change
-    function updateUserImage($user_id, $data)
+    // Tenant Profile Image Change
+    function updateUserImage($tenant_id, $data)
     {
         $conn = db_conn();
-        $selectQuery = "UPDATE userinfo SET image = ? where user_id = ?";
+        $selectQuery = "UPDATE tenantinfo SET image = ? where tenant_id = ?";
         try
         {
             $stmt = $conn->prepare($selectQuery);
             $stmt->execute([
-            $data['image'], $user_id]);
+            $data['image'], $tenant_id]);
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+        $conn = null;
+        return true;
+    }
+    
+    //Delete Tenant
+    function deleteTenant($tenant_id)
+    {
+        $conn = db_conn();
+        $selectQuery = "DELETE FROM `tenantinfo` WHERE `tenant_id` = ?";
+        try
+        {
+            $stmt = $conn->prepare($selectQuery);
+            $stmt->execute([$tenant_id]);
         }
         catch(PDOException $e)
         {
@@ -125,56 +151,4 @@
     
         return $row;
     }
-    
-    function updateuser($user_id, $data)
-    {
-        $conn = db_conn();
-        $selectQuery = "UPDATE userinfo SET name = ?, email = ?, username = ?, phone = ?, address = ?, usertype = ?, gender = ?, dob = ? where user_id = ?";
-        try
-        {
-            $stmt = $conn->prepare($selectQuery);
-            $stmt->execute([
-            $data['name'], $data['email'], $data['username'], $data['phone'], $data['address'], $data['usertype'], $data['gender'], $data['dob'], $user_id]);
-        }
-        catch(PDOException $e)
-        {
-            echo $e->getMessage();
-        }
-        $conn = null;
-        return true;
-    }
-    function deleteuser($user_id)
-    {
-        $conn = db_conn();
-        $selectQuery = "DELETE FROM `userinfo` WHERE `user_id` = ?";
-        try
-        {
-            $stmt = $conn->prepare($selectQuery);
-            $stmt->execute([$user_id]);
-        }
-        catch(PDOException $e)
-        {
-            echo $e->getMessage();
-        }
-        $conn = null;
-        return true;
-    }
-    
-    function searchuser($user_name)
-    {
-        $conn = db_conn();
-        $selectQuery = "SELECT * FROM `userinfo` WHERE username LIKE '%$user_name%'";
-    
-        try
-        {
-            $stmt = $conn->query($selectQuery);
-        }
-        catch(PDOException $e)
-        {
-            echo $e->getMessage();
-        }
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $rows;
-    }
-    // USER CRUD END
 ?>

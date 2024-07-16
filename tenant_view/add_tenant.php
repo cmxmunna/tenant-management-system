@@ -19,8 +19,19 @@
     <?php include('../header_footer/header_after_login.php'); ?>
     <div class="main">
     <?php include('../controller/panelCntrl.php'); ?>
+
+
+    <?php
+        require_once '../model/room_model.php';
+        function fetchShowableRooms()
+        {
+            return onlyShowableRooms();
+        }
+        $rooms = fetchShowableRooms();
+    ?>
+    
         <section>
-        <input type="button" onclick="goBack()" class="link-hvr" value="← Back">
+        <a href="../tenant_view/view_all_tenants.php" class="btn-action link-hvr">← Back</a>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return RegistrationValidation()" method="post" enctype="multipart/form-data">
             <div class="">
                 <h1 ><legend>ADD NEW TENANT</legend></h1>
@@ -31,57 +42,15 @@
                         <span id="nameErr" class="error">*</span></td>
                     </tr>
                     <tr>
-                        <td><label for="email">Email</label></td>
-                        <td>: <input type="email" id="email" name="email">
-                        <span id="emailErr" class="error">*</span></td>
-                    </tr>
-                    <tr>
-                        <td><label for="username">User Name</label></td>
-                        <td>: <input type="text" id="username" name="username">
-                        <span id="usernameErr" class="error">* <?php echo $error ?></span></td>
-                    </tr>
-                    <tr>
-                        <td><label for="password">Password</label></td>
-                        <td>: <input type="text" id="password" name="password">
-                        <span id="passwordErr" class="error">*</span></td>
-                    </tr>
-                    <tr>
-                        <td><label for="cpass">Confirm Password &nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-                        <td>: <input type="text" id="cpass" name="cpass">
-                        <span id="cpassErr" class="error">*</span></td>
-                    </tr>
-                    <tr>
-                        <td><label for="phone">Phone</label></td>
-                        <td>: <input type="tel" id="phone" name="phone">
-                        <span id="phoneErr" class="error">*</span></td>
-                    </tr>
-                    <tr>
-                        <td><label for="address">Address</label></td>
-                        <td>: <textarea id="address" name="address" rows="4" cols="23"></textarea>
-                        <span id="addressErr" class="error">*</span></td>
+                        <td><label for="father">Father Name</label></td>
+                        <td>: <input type="text" id="father" name="father">
+                        <span id="fatherErr" class="error">*</span></td>
                     </tr>
                     <tr>
                         <td>
                             <label for="dob">Date of Birth</label></td>
-                            <td>: <input type="date" date_format="dd/mm/yyy" id="dob" name="dob" min="1953-01-01" max="1998-12-31">
+                            <td>: <input type="date" date_format="dd/mm/yyy" id="dob" name="dob" min="1953-01-01" max="2010-12-31">
                             <span id="dobErr" class="error">*</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <fieldset>
-                            <legend>User Type</legend>
-                            <select name="usertype" id="usertype">
-                                <option value="">Select</option>
-                                <option value="Home">Home Internet</option>
-                                <option value="Corporate">Corporate Internet</option>
-                                <option value="Wireless">Wireless Internet</i></option>
-                                <option value="Student">Student Internet</option>
-                                <option value="IPTelephony">IP Telephony</option>
-                                <option value="Host&Develope">Hosting & Developement</option>
-                            </select>
-                            <span id="usertypeErr" class="error">*</span>
-                            </fieldset>
                         </td>
                     </tr>
                     <tr>
@@ -98,33 +67,124 @@
                     <tr>
                         <td colspan="2">
                             <fieldset>
-                            <legend>User Image</legend>
+                            <legend>Religion</legend>
+                            <select name="religion" id="religion">
+                                <option value="">Select</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Hinduism">Hinduism</option>
+                                <option value="Christianity">Christianity</option>
+                            </select>
+                            <span id="religionErr" class="error">*</span>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <fieldset>
+                            <legend>Maritial Status</legend>
+                            <select name="maritial_status" id="maritial_status">
+                                <option value="">Select</option>
+                                <option value="Married">Married</option>
+                                <option value="Unmarried">Unmarried</option>
+                            </select>
+                            <span id="maritial_statusErr" class="error">*</span>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="occupation">Occupation</label></td>
+                        <td>: <input type="text" id="occupation" name="occupation">
+                        <span id="occupationErr" class="error">*</span></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nid">NID Number</label></td>
+                        <td>: <input type="text" id="nid" name="nid">
+                        <span id="nidErr" class="error">*</span></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phone_number">Phone Number</label></td>
+                        <td>: <input type="tel" id="phone_number" name="phone_number">
+                        <span id="phone_numberErr" class="error">* <?php echo $phone_numberExist ?></span></td>
+                    </tr>
+                    <tr>
+                        <td><label for="permanent_address">P. Address</label></td>
+                        <td>: <textarea id="permanent_address" name="permanent_address" rows="4" cols="23"></textarea>
+                        <span id="permanent_addressErr" class="error">*</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <fieldset>
+                            <legend>Select Room No</legend>
+                            <select name="room_no" id="room_no">
+                                <option value="">Show Available Rooms</option>
+                                <?php foreach ($rooms as $i => $room): ?>
+                                <option value="<?php echo $room['room_no'] ?>"><?php echo $room['room_no'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <span id="room_noErr" class="error">*</span>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="advance">Advance</label></td>
+                        <td>: <input type="text" id="advance" name="advance">
+                        <span id="advanceErr" class="error">*</span></td>
+                    </tr>
+                    <tr>
+                        <td><label for="monthly_bill">Monthly Bill</label></td>
+                        <td>: <input type="text" id="monthly_bill" name="monthly_bill">
+                        <span id="monthly_billErr" class="error">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="rent_date">Rent Date</label></td>
+                            <td>: <input type="date" date_format="dd/mm/yyy" id="rent_date" name="rent_date" min="2024-01-01" max="2028-12-31">
+                            <span id="rent_dateErr" class="error">*</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <fieldset>
+                            <legend>Status</legend>
+                            <select name="status" id="status">
+                                <option value="">Select</option>
+                                <option value="Current Tenant">Current Tenant</option>
+                                <option value="Not a current Tenant">Not a current Tenant</option>
+                            </select>
+                            <span id="statusErr" class="error">*</span>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <fieldset>
+                            <legend>Tenant Image</legend>
                             <input type="file" name="image" id="image">  
                             <span id="imageErr" class="error">*</span>
                             </fieldset> <br>
                         </td>
                     </tr>
-                    </table>
-                    <table>
-                    <tr>
-                        <td width="200px">
-                            <input type="submit" name="addUser" value="ADD" class="btn">
-                        </td>
-                        <td>
-                            <input type="reset" value="Reset" class="btn">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="top-mar-10 green">
-                            <?php  
-                                if(isset($message))  
-                                {  
-                                    echo $message;  
-                                }  
-                            ?>
-                        </td>
-                    </tr>
                 </table>
+                    <table>
+                        <tr>
+                            <td width="200px">
+                                <input type="submit" name="addTenant" value="Submit" class="btn">
+                            </td>
+                            <td>
+                                <input type="reset" value="Reset" class="btn">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="top-mar-10 green">
+                                <?php  
+                                    if(isset($message))  
+                                    {  
+                                        echo $message;  
+                                    }  
+                                ?>
+                            </td>
+                        </tr>
+                    </table>
             </div>
         </form> 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

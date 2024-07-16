@@ -51,43 +51,47 @@
         <h1>Welcome to Mridha Recidence</h1> 
     </div>
     <div class="row">
-        <div class="col-2">
+        <div class="col-2 center">
             <img src="resources/img/images/about.png" alt="About Mission Vision">
         </div>
     </div>
     <br><br>
     <div class="col-3 center">
-        <h1 class='color-cyan'>Checkout All Our Houses</h1> <br>
+        <h1 class='color-cyan'>Showing All Available Rooms</h1> <br>
     </div>
 
     <?php
         require_once 'model/room_model.php';
-        function fetchShowableRoons()
+        function fetchShowableRooms()
         {
             return onlyShowableRooms();
         }
-        $ipacks = fetchShowableRooms();
+        $rooms = fetchShowableRooms();
     ?>
     <div class="row">
-        <?php foreach ($ipacks as $i => $ipack): ?>
+        <?php foreach ($rooms as $i => $room): ?>
             <div class="col-1">
                 <table border="1">
                     <tr>
-                        <th class='center red'><h3><?php echo $ipack['name'] ?></h3></th>
-                    </tr>
-                    <tr>
-                        <td class='center'><img width="200px" src="resources/img/ipack_img/<?php echo $ipack['image'] ?>" alt="<?php echo $ipack['name'] ?>"></td>
+                        <td class='center'><img width="200px" src="resources/img/room_img/<?php echo $room['image'] ?>" alt="<?php echo $room['room_no'] ?>"></td>
                     </tr>
                     <tr>
                         <td class='center'>
-                            Speed: <?php echo $ipack['speed'] ?><br>
-                            Price: <?php echo $ipack['price']." TK" ?><br>
-                            User Type: <?php echo $ipack['usertype'] ?><br>
-                            Connection Type: <?php echo $ipack['conntype'] ?><br>
-                            Using Time: <?php echo $ipack['time'] ?><br>
-                            Support: <?php echo $ipack['support'] ?><br>
-                            Included: <?php echo $ipack['included'] ?><br>
-                            <a href="../view/create_payment.php?pack_id=<?php echo $ipack['pack_id'] ?>" class="green"><span class="btn-action">Subscribe</span></a>
+                            Room No: <?php echo $room['room_no'] ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='center'>
+                            Rent Price: <?php echo $room['rent']." TK" ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='center'>
+                            Address: <?php echo $room['house_address'] ?>
+                    </tr>
+                    <tr>
+                        <td class='center'>
+                            Room Details: <?php echo $room['room_details'] ?>
                         </td>
                     </tr>
                 </table>

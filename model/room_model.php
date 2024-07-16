@@ -22,7 +22,7 @@ function showallrooms()
 function onlyShowableRooms()
 {
 	$conn = db_conn();
-    $selectQuery = "SELECT * FROM `roominfo` where display = 'Yes'";
+    $selectQuery = "SELECT * FROM `roominfo` where booked = 'No'";
     try
     {
         $stmt = $conn->query($selectQuery);
@@ -72,6 +72,25 @@ function updateRoomImage($room_id, $data)
     return true;
 }
 
+    // Room Booking info Update
+    function updateRoomBookingInfo($data)
+    {
+        $conn = db_conn();
+        $selectQuery = "UPDATE roominfo SET booked = ? where room_no = ?";
+        try
+        {
+            $stmt = $conn->prepare($selectQuery);
+            $stmt->execute([
+            $data['booked'], $data['room_no']]);
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+        $conn = null;
+        return true;
+    }
+
 //Add Rooms
 function addroom($data)
 {
@@ -100,23 +119,6 @@ function addroom($data)
     return true;
 }
 
-function updateroom($room_id, $data)
-{
-    $conn = db_conn();
-    $selectQuery = "UPDATE roominfo SET house_address = ?, room_no = ?, rent = ?, room_details = ?, booked = ? where room_id = ?";
-    try
-    {
-        $stmt = $conn->prepare($selectQuery);
-        $stmt->execute([
-        $data['house_address'], $data['room_no'], $data['rent'], $data['room_details'], $data['booked'], $room_id]);
-    }
-    catch(PDOException $e)
-    {
-        echo $e->getMessage();
-    }
-    $conn = null;
-    return true;
-}
 
 function deleteroom($room_id)
 {

@@ -1,31 +1,32 @@
 <?php
-    require_once '../model/model.php';
-    $usernameExist = $genderErr ="";
-    $username = '';
+    require_once '../model/tenant_model.php';
+    require_once '../model/room_model.php';
+    $phone_numberExist = $genderErr ="";
+    $phone_number ='';
     $message = '';
     $error = '';
 
-    if(isset($_POST['addUser'])) 
+    if(isset($_POST['addTenant'])) 
     {
         $conn = db_conn();
-        $selectQuery = "SELECT * FROM userinfo WHERE username = :username";
+        $selectQuery = "SELECT * FROM tenantinfo WHERE phone_number = :phone_number";
         try
         {
             $stmt = $conn-> prepare($selectQuery);  
             $stmt->execute(  
                 array(  
-                    'username'     =>     $_POST["username"], 
+                    'phone_number'     =>     $_POST["phone_number"], 
                 )  
             );  
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $count = $stmt->rowCount();  
             if($count > 0)  
             {  
-                $username = $row['username'];
+                $phone_number = $row['phone_number'];
             }  
-            if($username == $_POST['username'])
+            if($phone_number == $_POST['phone_number'])
             {
-                $usernameExist = "⚠ Username ".$_POST['username']." is already Taken!";
+                $phone_numberExist = "⚠ phone_number ".$_POST['phone_number']." is already Stroed in server!";
             }
             else
             {
@@ -40,30 +41,52 @@
                     $ran_id = rand(time(), 18360251);
                     $time = time();
                     $new_img_name = $time.$img_name;
-                    $target_dir = "../resources/img/user_img/";
+                    $target_dir = "../resources/img/tenant_img/";
                     $target_file = $target_dir .$new_img_name;
 
-                    $data['user_id']     = md5($ran_id);
+                    $data['tenant_id']     = md5($ran_id);
                     $data['name']     = $_POST['name'];
-                    $data['email']    = $_POST['email'];
-                    $data['username'] = $_POST['username'];
-                    $data['phone']    = $_POST['phone'];
-                    $data['address']  = $_POST['address'];
-                    $data['usertype'] = $_POST['usertype'];
-                    $data['gender']   = $_POST['gender'];
-                    $data['dob']      = $_POST['dob'];
-                    $data['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ["cost" => 12]);
+                    $data['father']    = $_POST['father'];
+                    $data['dob'] = $_POST['dob'];
+                    $data['gender']    = $_POST['gender'];
+                    $data['religion']  = $_POST['religion'];
+                    $data['maritial_status']   = $_POST['maritial_status'];
+                    $data['occupation']   = $_POST['occupation'];
+                    $data['nid']   = $_POST['nid'];
+                    $data['phone_number']   = $_POST['phone_number'];
+                    $data['password'] = password_hash($_POST['phone_number'], PASSWORD_BCRYPT, ["cost" => 12]);
+                    $data['permanent_address']   = $_POST['permanent_address'];
+                    $data['room_no']   = $_POST['room_no'];
+                    $data['advance']   = $_POST['advance'];
+                    $data['monthly_bill']   = $_POST['monthly_bill'];
+                    $balance = $_POST['monthly_bill'] - $_POST['advance'];
+                    $data['balance']   = $balance;
+                    $data['rent_date']   = $_POST['rent_date'];
+                    $data['status']   = $_POST['status'];
+                    $usertype = "Tenant";
+                    $data['usertype'] = $usertype;
+                    $booked = "Yes";
+                    $data['booked'] = $booked;
                     $data['image'] = $new_img_name;
 
                         
                     if(move_uploaded_file($tmp_name, $target_file)){}
-                    if (userRegistration($data)) 
+                    if (addNewTenant($data))
                     {
-                        $message = "<i>Registration Dada Saved Successfully</i>";
+                        $message = "<i>Tenant Dada Saved Successfully</i>";
                     }
                     else
                     {
-                        $message = "⚠ Registration Dada was not saved ⚠";
+                        $message = "⚠ Tenant Dada was not saved ⚠";
+                    }
+
+                    if (updateRoomBookingInfo($data))
+                    {
+                        $message = "<i>Tenant Dada Saved Successfully</i>";
+                    }
+                    else
+                    {
+                        $message = "⚠ Tenant Dada was not saved ⚠";
                     }
                 }
             } 
