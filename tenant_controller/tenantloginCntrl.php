@@ -7,43 +7,38 @@
         if(isset($_POST["login"]))  
         {  
             $conn = db_conn();
-            $selectQuery = "SELECT * FROM userinfo WHERE username = :username";  
+            $selectQuery = "SELECT * FROM tenantinfo WHERE phone_number = :phone_number";  
             try
             {
                 $stmt = $conn-> prepare($selectQuery);  
                 $stmt->execute(  
                     array(  
-                        'username'     =>     $_POST["username"], 
+                        'phone_number'     =>     $_POST["phone_number"], 
                     )  
                 );  
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 $count = $stmt->rowCount();  
                 if($count > 0)  
                 {  
-                    $_SESSION["user_id"] = $row['user_id'];
+                    $_SESSION["tenant_id"] = $row['tenant_id'];
                     $_SESSION["name"] = $row['name'];
-                    $_SESSION["email"] = $row['email'];
-                    $_SESSION["username"] = $row['username'];
+                    $_SESSION["phone_number"] = $row['phone_number'];
                     $_SESSION["password"] = $row['password'];
-                    $_SESSION["address"] = $row['address'];
-                    $_SESSION["phone"] = $row['phone'];
                     $_SESSION["usertype"] = $row['usertype'];
                     $_SESSION["gender"] = $row['gender'];
                     $_SESSION["dob"] = $row['dob'];
                     $_SESSION["image"] = $row['image'];
 
-                    if(password_verify($_POST["password"], $_SESSION["password"]))
+                    if(password_verify($_POST["phone_number"], $_SESSION["password"]))
                     {
                         header("location: ../view/dashboard.php");
                         if(empty($_POST["remember"])) 
                         {
-                            setcookie("userusername","");
-                            setcookie("userpassword","");
+                            setcookie("tenantphone_number","");
                         } 
                         else 
                         {
-                            setcookie ("userusername",$_POST["username"],time() + 86400);
-                            setcookie ("userpassword",$_POST["password"],time() + 86400);
+                            setcookie ("tenantphone_number",$_POST["phone_number"],time() + 86400);
                         }
                     }
                     else  
@@ -53,7 +48,7 @@
                 } 
                 else  
                 {  
-                    $message = '⚠⚠⚠<br> [' .$_POST["username"].'] -- This Username not Exist! <br> Create your user account from REGISTER';   
+                    $message = '⚠⚠⚠<br> [' .$_POST["phone_number"].'] -- This Tenant not Exist! ';   
                 } 
             }   
             catch(PDOException $e)

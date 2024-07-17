@@ -3,8 +3,8 @@
     {
         include('../panel/adminpanel.php');
     }
-    else if($Type=="User")
+    else if($Type=="Tenant")
     {
-        include('../panel/userpanel.php');
+        include('../panel/tenantpanel.php');
     } 
 ?>

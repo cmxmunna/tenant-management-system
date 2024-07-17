@@ -24,11 +24,10 @@
             <table border="1" class="usr-table">
                 <thead>
                     <tr>
-                        <th>Room ID</th>
-                        <th>House Address</th>
                         <th>Room No</th>
-                        <th>Rent Price</th>
+                        <th>House Address</th>
                         <th>Room Details</th>
+                        <th>Rent Price</th>
                         <th>Booked</th>
                         <th>Image</th>
                         <th>Action</th>
@@ -37,11 +36,10 @@
                 <tbody>
                     <?php foreach ($rooms as $i => $room): ?>
                         <tr>
-                            <td><a href="../room_view/view_roomDetails.php?room_id=<?php echo $room['room_id'] ?>"><?php echo $room['room_id'] ?></a></td>
-                            <td><?php echo $room['house_address'] ?></td>
                             <td><a href="../room_view/view_roomDetails.php?room_id=<?php echo $room['room_id'] ?>"><?php echo $room['room_no'] ?></a></td>
-                            <td><?php echo $room['rent'] ?></td>
+                            <td><?php echo $room['house_address'] ?></td>
                             <td><?php echo $room['room_details'] ?></td>
+                            <td><?php echo $room['rent'] ?> Tk</td>
                             <td><?php echo $room['booked'] ?></td>
                             <td><img width="120px" src="../resources/img/room_img/<?php echo $room['image'] ?>" alt="<?php echo $room['room_no'] ?>"></td>
                             <td>

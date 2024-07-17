@@ -25,10 +25,6 @@
                     <h1 class="color-cyan">UPDATE ROOM DETAILS</h1>
                     <table>
                         <tr>
-                            <td><label for="house_address">House Address</label></td>
-                            <td >: <input type="text" id="house_address" name="house_address" value="<?php echo $room['house_address'] ?>" ></td>
-                        </tr>
-                        <tr>
                             <td><label for="room_no">Room NO</label></td>
                             <td>: <input type="text" id="room_no" name="room_no" value="<?php echo $room['room_no'] ?>"></td>
                         </tr>
@@ -37,8 +33,12 @@
                             <td>: <input type="text" id="rent" name="rent" value="<?php echo $room['rent'] ?>"></td>
                         </tr>
                         <tr>
+                            <td><label for="house_address">House Address</label></td>
+                            <td >: <textarea id="house_address" name="house_address" rows="4" cols="23"><?php echo $room['house_address'] ?></textarea> </td>
+                        </tr>
+                        <tr>
                             <td><label for="room_details">Room Details</label></td>
-                            <td>: <input type="text" id="room_details" name="room_details" value="<?php echo $room['room_details'] ?>" ></td>
+                            <td>: <textarea id="room_details" name="room_details" rows="4" cols="23"><?php echo $room['room_details'] ?></textarea> </td>
                         </tr>
                         <tr>
                             <td><label for="booked">Booked?</label></td>

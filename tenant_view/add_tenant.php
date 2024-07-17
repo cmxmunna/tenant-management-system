@@ -84,8 +84,8 @@
                             <legend>Maritial Status</legend>
                             <select name="maritial_status" id="maritial_status">
                                 <option value="">Select</option>
-                                <option value="Married">Married</option>
                                 <option value="Unmarried">Unmarried</option>
+                                <option value="Married">Married</option>
                             </select>
                             <span id="maritial_statusErr" class="error">*</span>
                             </fieldset>

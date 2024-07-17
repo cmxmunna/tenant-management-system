@@ -23,11 +23,6 @@
                     <h1 class="color-cyan">ADD NEW ROOM</h1>
                     <table>
                         <tr>
-                            <td><label for="house_address">House Address</label></td>
-                            <td>: <textarea id="house_address" name="house_address" rows="4" cols="23"></textarea>
-                            <span id="House_addressErr" class="error">*</span></td>
-                        </tr>
-                        <tr>
                             <td><label for="room_no">Room NO</label></td>
                             <td>: <input type="text" id="room_no" name="room_no">
                             <span id="room_noErr" class="error">*</span></td>
@@ -39,6 +34,11 @@
                             </td>
                         </tr>
                         <tr>
+                            <td><label for="house_address">House Address</label></td>
+                            <td>: <textarea id="house_address" name="house_address" rows="4" cols="23"></textarea>
+                            <span id="House_addressErr" class="error">*</span></td>
+                        </tr>
+                        <tr>
                             <td><label for="room_details">Room Details</label></td>
                             <td>: <textarea id="room_details" name="room_details" rows="4" cols="23"></textarea>
                                 <span id="room_detailsErr" class="error">*</span>
@@ -47,8 +47,8 @@
                         <tr>
                             <td><label for="booked">Booked?</label></td>
                             <td>: 
+                            <input type="radio" id="no" name="booked" value="No" <?php echo "checked";?>><label for="no" class="red"> No</label>
                             <input type="radio" id="yes" name="booked" value="Yes"><label for="yes" class="green"> Yes</label>
-                            <input type="radio" id="no" name="booked" value="No"><label for="no" class="red"> No</label>
                             <span id="bookedErr" class="error">*</span> <br><br>
                             </td>
                         </tr>

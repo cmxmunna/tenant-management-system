@@ -1,5 +1,5 @@
 <?php
-    require_once '../model/ipack_model.php';
+    require_once '../model/room_model.php';
 
     $message="";
 
@@ -17,13 +17,13 @@
         {
             $time = time();
             $new_img_name = $time.$img_name;
-            $target_dir = "../resources/img/ipack_img/";
+            $target_dir = "../resources/img/room_img/";
             $target_file = $target_dir .$new_img_name;
             $data['image'] = $new_img_name;
             if(move_uploaded_file($tmp_name, $target_file))
             {
                 // $message = "upload Success";
-                if (updateInernetPackImage($_POST['pack_id'], $data)) 
+                if (updateRoomImage($_POST['room_id'], $data)) 
                 {
                     $message = "Image uploaded successfully.";
                 }

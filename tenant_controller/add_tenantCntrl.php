@@ -73,7 +73,7 @@
                     if(move_uploaded_file($tmp_name, $target_file)){}
                     if (addNewTenant($data))
                     {
-                        $message = "<i>Tenant Dada Saved Successfully</i>";
+                        $message = "<i>Tenant Record Saved Successfully</i>";
                     }
                     else
                     {

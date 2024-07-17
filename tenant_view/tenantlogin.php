@@ -17,25 +17,18 @@
     <div class="loginnav">
         <ul>
             <li class="loginnav-btn"><a href="../admin_view/adminlogin.php"><i class="fas fa-user-shield"></i> ADMIN</a></li>
-            <li class="loginnav-btn1"><a href="../user_view/userlogin.php"><i class="fas fa-user"></i> USER</a></li>
+            <li class="loginnav-btn1"><a href="../tenant_view/tenantlogin.php"><i class="fas fa-user"></i> USER</a></li>
         </ul>
     </div>
     <form method="post" onsubmit="return LoginValidation()" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="better-view">
-            <h1 align="center"><strong>USER LOGIN</strong></h1>
+            <h1 align="center"><strong>TENANT LOGIN</strong></h1>
             <table align="center">
                 <tr>
-                    <td><label for="username">User Name &nbsp;&nbsp;&nbsp;</label></td>
-                    <td>: <input type="text" id="username" name="username" placeholder="Type User Name"
-                            value="<?php if(isset($_COOKIE["userusername"])) { echo $_COOKIE["userusername"]; } ?>">
+                    <td><label for="phone_number">Phone Number &nbsp;&nbsp;&nbsp;</label></td>
+                    <td>: <input type="text" id="phone_number" name="phone_number" placeholder="Type User Phone Number"
+                            value="<?php if(isset($_COOKIE["phone_number"])) { echo $_COOKIE["phone_number"]; } ?>">
                         <span class="error" id="usernameErr"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="password">Password</label></td>
-                    <td>: <input type="password" id="password" name="password" placeholder="Type Password"
-                            value="<?php if(isset($_COOKIE["userpassword"])) { echo $_COOKIE["userpassword"]; } ?>">
-                        <span class="error" id="passwordErr"></span>
                     </td>
                 </tr>
                 <tr>
@@ -52,9 +45,6 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center"><input type="submit" name="login" value="Login" class="btn"></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center" class="forgot"><a href="../user_view/forgot_userPassword.php">Forgot Password?</a></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center" class="error">

@@ -15,14 +15,12 @@
         if(in_array($img_ext, $extensions) === true)
         {
             $ran_id = rand(time(), 36025);
-            //$ran_id = time() -799990;
             $time = time();
             $new_img_name = $time.$img_name;
             $target_dir = "../resources/img/room_img/";
             $target_file = $target_dir .$new_img_name;
 
-            //$data['room_id']  = md5($ran_id);
-            $data['room_id']  = $ran_id;
+            $data['room_id']  = md5($ran_id);
             $data['house_address']     = $_POST['house_address'];
             $data['room_no']    = $_POST['room_no'];
             $data['rent'] = $_POST['rent'];

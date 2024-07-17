@@ -10,7 +10,7 @@ require_once '../model/room_model.php';
         $data['rent']             = $_POST['rent'];
         $data['room_details']     = $_POST['room_details'];  
         $data['booked']           = $_POST['booked'];
-        if (updateroom($_POST['room_id'], $data)) 
+        if (updateRoomData($_POST['room_id'], $data)) 
         {
             $message = "✔ Room Details Updated Successfully by ".$Name." ✩";
         }

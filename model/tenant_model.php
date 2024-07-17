@@ -42,15 +42,15 @@
     }
 
     // Update Tenant Profile
-    function updateTenantProfile($tenant_id, $data)
+    function updateTenantRecord($tenant_id, $data)
     {
         $conn = db_conn();
-        $selectQuery = "UPDATE tenantinfo SET name = ?, father = ?, dob = ?, gender = ?, religion = ?, maritial_status = ?, occupation = ?, nid = ?, phone_number = ?, permanent_address = ?, room_no = ?, advance = ?, monthly_bill = ?, balance = ?, rent_date = ?, status = ? where tenant_id = ?";
+        $selectQuery = "UPDATE tenantinfo SET name = ?, father = ?, dob = ?, gender = ?, religion = ?, maritial_status = ?, occupation = ?, nid = ?, phone_number = ?, permanent_address = ?, room_no = ?, monthly_bill = ?, balance = ?, rent_date = ?, status = ? where tenant_id = ?";
         try
         {
             $stmt = $conn->prepare($selectQuery);
             $stmt->execute([
-            $data['name'], $data['father'], $data['dob'], $data['gender'], $data['religion'], $data['maritial_status'], $data['occupation'], $data['nid'], $data['phone_number'], $data['permanent_address'], $data['room_no'], $data['advance'], $data['monthly_bill'], $data['balance'], $data['rent_date'], $data['status'], $tenant_id]);
+            $data['name'], $data['father'], $data['dob'], $data['gender'], $data['religion'], $data['maritial_status'], $data['occupation'], $data['nid'], $data['phone_number'], $data['permanent_address'], $data['room_no'], $data['monthly_bill'], $data['balance'], $data['rent_date'], $data['status'], $tenant_id]);
         }
         catch(PDOException $e)
         {

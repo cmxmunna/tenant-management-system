@@ -21,7 +21,7 @@
 
 <body>
     <div class="header">
-        <a href="index.php" class="logo"><img src="resources/img/logo/ife-logo.gif" alt="IFE"></a>
+        <a href="index.php" class="logo"><img src="resources/img/logo/mridharecidencelogo.png" alt="IFE"></a>
         <div class="header-right">
             <a href="view/dashboard.php"><i class="fas fa-key"></i>
                 <?php
@@ -35,7 +35,7 @@
                     }
                 ?>
             </a>
-            <a href="view/registration.php"><i class="fa fa-user-plus"></i> Registration</a>
+            <a href="#"><i class="fa fa-user-plus"></i> Registration</a>
         </div>
     </div>
     <div class="heading">
@@ -52,7 +52,7 @@
     </div>
     <div class="row">
         <div class="col-2 center">
-            <img src="resources/img/images/about.png" alt="About Mission Vision">
+            <img src="resources/img/images/mr_banner.png" alt="About Mission Vision">
         </div>
     </div>
     <br><br>
@@ -103,53 +103,41 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p>
-                        Internet For Everyone. Twin Tower <br>
-                        007 Purbachol New Town C/A <br>
-                        Tel : (8802) 222211111 <br>
-                        Mob : (880) 1627000000 <br>
-                        Fax : (8802) 222222222 <br>
-                        Email : info@ife.com.bd <br>
-                    </p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="internetpack/home_internet.php">Home Internet</a></li>
-                        <li><a href="internetpack/corporate_internet.php">Corporate Internet</a></li>
-                        <li><a href="internetpack/student_internet.php">Student Package</a></li>
-                        <li><a href="internetpack/covarage_area.php">Covarage area</a></li>
-                        <li><a href="internetpack/hosting_developement.php">hosting and developement</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="aboutus/about_us.php">about us</a></li>
-                        <li><a href="aboutus/privacy_policy.php">privacy policy</a></li>
-                        <li><a href="internetpack/special_offer.php">special offer</a></li>
-                        <li><a href="payment/payment.php">payment options</a></li>
-                        <li><a href="aboutus/faq.php">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>follow us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                   <p>
+                    Matrix Technologies Ltd. <br>
+                    Golan, Naotana Mor, Ulukhola, <br>
+                    Kaliganj, Gazipur <br>
+                    Mobile : 01627124780 <br>
+                    Email : cmxmunna@gmail.com <br>
+                   </p>
+            </div>
+        
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../aboutus/about_us.php">about us</a></li>
+                    <li><a href="../aboutus/privacy_policy.php">privacy policy</a></li>
+                    <li><a href="../internetpack/special_offer.php">special offer</a></li>
+                    <li><a href="../how_to_do_payment/payment.php">payment options</a></li>
+                    <li><a href="../aboutus/faq.php">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/matrixtechnologiesltd"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
+        </div>
     </footer>
     <?php include('header_footer/footer_news.php'); ?>
-    <div class="copyright">
-        <p>Copyright © 2021 || All Rights Reserved by <a href="aboutus/spacex_soft_tech.php"> SpaceX Soft Tech</a></p>
-    </div>
+    <?php include('header_footer/copyright.php'); ?>
     <!-- footer end -->
 </body>
 
