@@ -1,11 +1,10 @@
 <?php 
     include "../controller/session.php" ;
-    include "../user_controller/update_userSessionImageCntrl.php" ;
-    require_once '../user_controller/userinfoCntrl.php';
-    $user = fetchuser($_GET['user_id']);
+    include "../tenant_controller/uploadTenantContractCopyCntrl.php" ;
+    require_once '../tenant_controller/tenantinfoCntrl.php';
+    $tenant = fetchtenant($_GET['tenant_id']);
     
     if($_SESSION['usertype'] == "Admin"){}
-    else if($_SESSION['usertype'] == "Moderator"){}
     else{header("location: ../controller/hackerCntrl.php");}
 ?>
 <!DOCTYPE html>
@@ -16,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="../resources/img/icon/favicon.png">
     <link href="../resources/stylesheet/ife.css?v=<?php echo time(); ?>" rel="stylesheet">
-    <title>Profile Image</title>
+    <title>Contract Upload</title>
 </head>
 <body>
     <?php include('../header_footer/header_after_login.php'); ?>
@@ -26,19 +25,16 @@
         <input type="button" onclick="goBack()" class="link-hvr" value="← Back">
             <form method="post" action="" enctype="multipart/form-data">
                 <div class="top-mar-50">
-                    <h1><legend>PROFILE PICTURE EDIT</legend></h1>
+                    <h1><legend>UPLOAD TENANT CONTRACT COPY</legend></h1>
                     <table>
                         <tr>
-                            <td colspan="2"><img  src="../resources/img/user_img/<?php echo $user['image'] ?>" alt="<?php echo $user['name'] ?>" height="200px"></td>
+                            <td colspan="2"><img  src="../resources/img/tenant_img/contractScanCopy/<?php echo $tenant['contract_img'] ?>" alt="<?php echo $tenant['contract_img'] ?>" height="200px"></td>
                         </tr>
                         <tr>
                             <td><input type="file" name="image" style="font-size: 15px;"></td>
                         </tr>
-                        <tr colspan="2">
-                            <td><span class="error"><?php echo $uploadErr; ?></span></td>
-                        </tr>
                         <tr>
-                            <input type="hidden" name="user_id" value="<?php echo $_GET['user_id']; ?>">
+                            <input type="hidden" name="tenant_id" value="<?php echo $_GET['tenant_id']; ?>">
                             <td><input type="submit" value="upload" name="upload" class="btn"></td>
                         </tr>
                         <tr>

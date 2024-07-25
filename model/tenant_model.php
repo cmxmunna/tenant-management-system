@@ -61,10 +61,67 @@
     }
 
     // Tenant Profile Image Change
-    function updateUserImage($tenant_id, $data)
+    function updateTenantImage($tenant_id, $data)
     {
         $conn = db_conn();
         $selectQuery = "UPDATE tenantinfo SET image = ? where tenant_id = ?";
+        try
+        {
+            $stmt = $conn->prepare($selectQuery);
+            $stmt->execute([
+            $data['image'], $tenant_id]);
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+        $conn = null;
+        return true;
+    }
+
+    // Tenant Scan Document Upload
+    function uploadTenantMetroRegCopy($tenant_id, $data)
+    {
+        $conn = db_conn();
+        $selectQuery = "UPDATE tenantinfo SET tenant_reg_img = ? where tenant_id = ?";
+        try
+        {
+            $stmt = $conn->prepare($selectQuery);
+            $stmt->execute([
+            $data['image'], $tenant_id]);
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+        $conn = null;
+        return true;
+    }
+
+    // Tenant Scan Document Upload
+    function uploadTenantContractCopy($tenant_id, $data)
+    {
+        $conn = db_conn();
+        $selectQuery = "UPDATE tenantinfo SET contract_img = ? where tenant_id = ?";
+        try
+        {
+            $stmt = $conn->prepare($selectQuery);
+            $stmt->execute([
+            $data['image'], $tenant_id]);
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+        $conn = null;
+        return true;
+    }
+
+    // Tenant Scan Document Upload
+    function uploadTenantNIDCopy($tenant_id, $data)
+    {
+        $conn = db_conn();
+        $selectQuery = "UPDATE tenantinfo SET nid_copy = ? where tenant_id = ?";
         try
         {
             $stmt = $conn->prepare($selectQuery);
